@@ -7,6 +7,7 @@ import kong from "@/components/kong.vue"
 import kong1 from "@/components/1.vue"
 import kong2 from "@/components/2.vue"
 import eacharts from "@/components/echars.vue"
+import changes from "@/components/changes.vue"
 
 
 Vue.use(Router)
@@ -43,6 +44,10 @@ export default new Router({
     {
       path:"/echarts",
       component:eacharts
+    },
+    {
+      path:"/changes",
+      component:changes
     }
   ]
 })
