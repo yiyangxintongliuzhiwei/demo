@@ -8,10 +8,10 @@ import kong1 from "@/components/1.vue"
 import kong2 from "@/components/2.vue"
 import eacharts from "@/components/echars.vue"
 import changes from "@/components/changes.vue"
-
-
+import login from "@/components/login.vue"
+import progress from "@/components/progress.vue"
+import banner from "@/components/banner.vue"
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
@@ -48,6 +48,18 @@ export default new Router({
     {
       path:"/changes",
       component:changes
+    },
+    {
+      path:"/login",
+      component:login
+    },
+    {
+      path:"/progress",
+      component:progress
+    },
+    {
+      path:"/banner",
+      component:banner
     }
   ]
 })

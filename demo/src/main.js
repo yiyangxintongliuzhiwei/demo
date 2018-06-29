@@ -4,16 +4,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
-import echarts from 'echarts'
+// import echarts from 'echarts'
 import store from './store.js'
+import VueResource from 'vue-resource'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-import Swiper from './components/Swiper.vue';
-import SwiperSlider from './components/SwiperSlide.vue';
-
-Vue.use(VueAwesomeSwiper)
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(router)
+Vue.use(ElementUI)
 Vue.prototype.$axios = axios;
-Vue.prototype.$echarts = echarts 
+// Vue.prototype.$echarts = echarts 
 
 
 Vue.config.productionTip = false
