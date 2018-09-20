@@ -11,6 +11,14 @@ import changes from "@/components/changes.vue"
 import login from "@/components/login.vue"
 import progress from "@/components/progress.vue"
 import banner from "@/components/banner.vue"
+import vuex from "@/components/vuex.vue"
+import zujianqiehuan from "@/components/zujianqiehuan.vue"
+import buzhoutiao from "@/components/buzhoutiao.vue"
+import alertwarn from "@/common/alertwarn.vue"
+import zidingyizujian from '@/components/zidingyizujian.vue'
+import parent from '@/components/parent.vue'
+import son from '@/components/son.vue'
+import slot from '@/components/slot.vue'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -60,6 +68,34 @@ export default new Router({
     {
       path:"/banner",
       component:banner
+    },
+    {
+      path:"/vuex",
+      component:vuex
+    },
+    {
+      path:"/zujianqiehuan",
+      component:zujianqiehuan
+    },
+    {
+      path:"/buzhoutiao",
+      component:buzhoutiao
+    },
+    {
+      path:"/alertwarn",
+      component:alertwarn
+    },
+    {
+      path:'/zidingyizujian',
+      component: zidingyizujian
+    },
+    {
+      path: '/parent',
+      component: parent,
+    },
+    {
+      path: '/slot',
+      component: slot
     }
   ]
 })

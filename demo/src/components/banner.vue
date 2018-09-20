@@ -1,48 +1,81 @@
 <template>
-    <div>
-       <el-upload
-          action=""
-          list-type="picture-card"
-          :on-preview="handlePictureCardPreview"
-          :on-remove="handleRemove">
-          <i class="el-icon-plus"></i>
-       </el-upload>
-       <el-dialog :visible.sync="dialogVisible">
-          <img width="100%" :src="dialogImageUrl" alt="">
-       </el-dialog>
-       <button class="submit" @click="submitfile">提交</button>
-    </div>
+  <div>
+    <button @click="addlist()">添加</button>
+    <transition name='fade'>
+      <addlist v-show="addpop" :addlistname="addlistname" :listdatas='listdatas' @sure='sure'></addlist>
+    </transition>
+    <transition name='fades'>
+      <warnning :warnword='warnword' v-show="alertwarn" @warnningsure='warnningsure'></warnning>
+    </transition>
+  </div>
 </template>
 <script>
- export default {
-    data() {
-      return {
-        dialogImageUrl: '',
-        dialogVisible: false
-      };
-    },
-    methods: {
-      handleRemove(file, fileList) {
-        console.log(file, fileList);
-      },
-      handlePictureCardPreview(file) {
-        this.dialogImageUrl = file.url;
-        this.dialogVisible = true;
-      },
-      submitfile() {
-        // var file = new FormData();
-        // file.append('filename', this.upath);// filename是键，file是值，就是要传的文件，test.zip是要传的文件名
-        // console.log(file.get('filename'))
-        // let config = { headers: { 'Content-Type': 'multipart/form-data' } };
-        // this.$http.post('api/emergency/import', file, config).then(
-        //   (res) => {
-        //     // this.userData = res.data.data
-        //     // this.loadData()
-        //   }
-        // )
-        console.log(this.dialogImageUrl)
-      }
+import addlist from '../common/addlist.vue'
+import warnning from '../common/warnning.vue'
+export default {
+  components: {addlist, warnning},
+  data() {
+    return {
+      addpop: false,
+      alertwarn: false,
+      addlistname: '添加用户',
+      warnword: '确定执行操作吗',
+      listdatas: [
+        {title: '用户名:'}, 
+        {title: '英文名:'},
+        {title: '英文名:'},
+        {title: '英文名:'},
+        {title: '用户名:'}, 
+        {title: '英文名:'},
+        {title: '英文名:'},
+        {title: '英文名:'},
+        {title: '用户名:'}, 
+        {title: '英文名:'},
+        {title: '英文名:'},
+        {title: '英文名:'},
+        {title: '描述:'}
+      ]
     }
-  }
+  },
+  methods: {
+    addlist() {
+      this.addpop = true
+    },
+    sure(data) {
+      if (data === 'ok') {
+        this.addpop = false
+        this.alertwarn = true
+      } else {
+        this.addpop = false
+        this.alertwarn = true
+      }
+    },
+    warnningsure(data) {
+      if (data === 'ok') {
+        this.alertwarn = false
+        // alert('执行成功')
+      } else {
+        this.alertwarn = false
+        this.addpop = true
+        // alert('取消执行')
+      }
+    },
+  } 
+}
 </script>
+<style lang="scss">
+.fade-enter-active, .fade-leave-active {
+  transition: all .5s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+.fades-enter-active, .fades-leave-active {
+  transition: all .5s ease;
+}
+.fades-enter, .fades-leave-to {
+  opacity: 0;
+}
+</style>
+
 

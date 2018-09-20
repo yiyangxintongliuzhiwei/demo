@@ -2,7 +2,7 @@
    <el-carousel :interval="5000" arrow="always" height="400">
     <el-carousel-item v-for="item in imgdata" :key="item">
       <!-- <h3>{{ item }}</h3> -->
-      <img :src="item">
+      <h3><img :src="item"></h3>
     </el-carousel-item>
   </el-carousel>
 </template>
@@ -11,9 +11,9 @@ export default {
     data(){
         return{
             imgdata:[
-                '../assets/1.png',
-                '../assets/2.jpg',
-                '../assets/3.jpg'
+                require('../assets/1.png'),
+                require('../assets/2.jpg'),
+                require('../assets/3.jpg'),
             ] 
         }
     } 
