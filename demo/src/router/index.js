@@ -19,6 +19,7 @@ import zidingyizujian from '@/components/zidingyizujian.vue'
 import parent from '@/components/parent.vue'
 import son from '@/components/son.vue'
 import slot from '@/components/slot.vue'
+import echartsmap from '@/components/echartsmap.vue'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -96,6 +97,10 @@ export default new Router({
     {
       path: '/slot',
       component: slot
+    },
+    {
+      path: '/echartsmap',
+      component: echartsmap
     }
   ]
 })

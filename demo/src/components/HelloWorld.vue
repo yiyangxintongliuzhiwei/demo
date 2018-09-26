@@ -42,6 +42,18 @@
           <div>{{item.textContent.split(' ')[1]}}</div>
         </div>
       </div>
+      <div class="chuledepai1" v-show="chulaidepai1">
+        <div v-for="item in zhuangpai1" class="puke">
+          <div>{{item.textContent.split(' ')[0]}}</div>
+          <div>{{item.textContent.split(' ')[1]}}</div>
+        </div>
+      </div>
+      <div class="chuledepai2" v-show="chulaidepai2">
+        <div v-for="item in zhuangpai2" class="puke">
+          <div>{{item.textContent.split(' ')[0]}}</div>
+          <div>{{item.textContent.split(' ')[1]}}</div>
+        </div>
+      </div>
       <button class="start" @click="start()" v-show="pukelist">发牌</button>
       <button class="start" @click='jiaodizhu()' v-show="jiaodizhus">叫地主</button>
       <button class="buchu" v-show="buchu">不出</button>
@@ -59,10 +71,16 @@ export default {
       pukelist: true,
       jiaodizhus: false,
       chulaidepai: false,
+      chulaidepai1: false,
+      chulaidepai2: false,
       zhuangpai: [],
+      zhuangpai1: [],
+      zhuangpai2: [],
+      zhuangpaideshuzi: [],
       arr2: [],
       arr3: [],
       arr4: [],
+      flag: 0,
       puke:[
         {color:'hong', value: '1'},
         {color:'hong', value: '2'},
@@ -122,15 +140,54 @@ export default {
       this.arr1.push(this.arr4[0])
       this.buchu = true
     },
-    //出牌
+    //本方出牌
     chupaizou() {
       this.zhuangpai = []
+      this.zhuangpaideshuzi = []
       this.chulaidepai = true
       for (let i = 0; i < this.checked.length; i++) {
         if (this.checked[i].flag) {
           this.zhuangpai.push(this.arr1[i])
         }
       }
+      this.zhuangpai.forEach(element => {
+        this.zhuangpaideshuzi.push(element.textContent.split(' ')[1])
+      })
+      this.zhuangpaideshuzi.forEach((element) => {
+        this.arr1 = this.arr1.filter((ele,index) => {
+           return ele.textContent.split(' ')[1] !== element  
+        })
+      })
+      //判断下手是否能出牌
+      var obj = {
+        x: () => {
+          this.chupaizou1()
+        }
+      }
+      setTimeout(function() {
+        obj.x();
+      }, 3000)    
+    },
+    //下手出牌
+    chupaizou1() {
+      this.zhuangpai1 = []
+      this.chulaidepai1 = true
+      this.zhuangpai1.push(this.arr3[Math.floor(Math.random()*4)])
+      //判断下下手是否能出牌
+      var objs = {
+        x: () => {
+          this.chupaizou2()
+        }
+      }
+      setTimeout(function() {
+        objs.x();
+      }, 2000) 
+    },
+    //下下手出牌
+    chupaizou2() {
+      this.zhuangpai2 = []
+      this.chulaidepai2 = true
+      this.zhuangpai2.push(this.arr2[Math.floor(Math.random()*4)])
     }
   }
 }
@@ -205,10 +262,50 @@ export default {
     .chuledepai{
       width: 350px;
       height: 80px;
-      border: 1px solid #000;
+      // border: 1px solid #000;
       position: absolute;
       left: 230px;
       bottom: 90px;
+      .puke{
+        width:50px;
+        height: 80px;
+        border: 1px solid #000;
+        cursor: pointer;
+        // position: absolute;
+        // left: 0;
+        // top: 0;
+        margin-right: -20px;
+        float: left;
+        background: mediumaquamarine
+      }
+    }
+    .chuledepai1{
+      width: 200px;
+      height: 80px;
+      // border: 1px solid #000;
+      position: absolute;
+      right: 100px;
+      top: 120px;
+      .puke{
+        width:50px;
+        height: 80px;
+        border: 1px solid #000;
+        cursor: pointer;
+        // position: absolute;
+        // left: 0;
+        // top: 0;
+        margin-right: -20px;
+        float: left;
+        background: mediumaquamarine
+      }
+    }
+    .chuledepai2{
+      width: 200px;
+      height: 80px;
+      // border: 1px solid #000;
+      position: absolute;
+      left: 100px;
+      top: 120px;
       .puke{
         width:50px;
         height: 80px;
