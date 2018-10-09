@@ -1,5 +1,7 @@
 import china from '../../static/data/china.js'
-// import chinaPosition from '../../static/data/chinaPosition.js'
+import echarts from 'echarts';
+// echarts.registerMap('china', china);
+import chinaPosition from '../../static/data/chinaPosition.js'
 export default {
   option1: {
     geo: {
@@ -16,7 +18,7 @@ export default {
         areaColor: '#0b1b41',
         borderColor: '#738ec3'
       },
-      silent: true,
+      silent:false,
     },
     series: [
       {
@@ -30,7 +32,7 @@ export default {
         symbol: 'circle',
         symbolSize: 15,
         itemStyle: {
-            color: '#E3D312'
+            color: '#2EFFD5'
         }
       },
       {
@@ -40,12 +42,14 @@ export default {
         data: [
           {value: [112.53, 37.87]},
           {value: [123.38, 41.8]},
-          {value: [109.47, 36.6]}
+          {value: [103.49, 36.03]},
+          {value: [108.93, 34.27]},
+          {value: [110.98, 35.02]}
         ],
         symbol: 'circle',
         symbolSize: 10,
         itemStyle: {
-            color: '#1be0b9'
+            color: '#2EFFD5'
         }
       }
     ]

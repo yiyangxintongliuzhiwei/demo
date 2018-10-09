@@ -9,7 +9,6 @@ import echarts from 'echarts';
 export default {
   data() {
     return {
-
     }
   },
   mounted() {
@@ -28,8 +27,8 @@ export default {
 </script>
 <style lang="scss">
 #map{
-  width: 944px;
-  height: 693px;
+  width: 1025px;
+  height: 690px;
   border: 1px solid #000;
   background: #08183c
 }

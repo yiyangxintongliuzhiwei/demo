@@ -20,6 +20,9 @@ import parent from '@/components/parent.vue'
 import son from '@/components/son.vue'
 import slot from '@/components/slot.vue'
 import echartsmap from '@/components/echartsmap.vue'
+import lianxi from '@/components/lianxi.vue'
+import baiyuan from '@/components/baiyuan.vue'
+import leaflet from '@/components/leaflet.vue'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -101,6 +104,18 @@ export default new Router({
     {
       path: '/echartsmap',
       component: echartsmap
+    },
+    {
+      path: '/lianxi',
+      component: lianxi
+    },
+    {
+      path: '/baiyuan',
+      component: baiyuan
+    },
+    {
+      path: '/leaflet',
+      component: leaflet
     }
   ]
 })
