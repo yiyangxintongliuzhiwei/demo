@@ -23,6 +23,8 @@ import echartsmap from '@/components/echartsmap.vue'
 import lianxi from '@/components/lianxi.vue'
 import baiyuan from '@/components/baiyuan.vue'
 import leaflet from '@/components/leaflet.vue'
+import menu from '@/components/menu.vue'
+import iflianxi from '@/components/iflianxi.vue'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -116,6 +118,14 @@ export default new Router({
     {
       path: '/leaflet',
       component: leaflet
+    },
+    {
+      path: '/menu',
+      component: menu
+    },
+    {
+      path: '/iflianxi',
+      component: iflianxi
     }
   ]
 })
